@@ -7,5 +7,7 @@ int main () {
 	std::cout << "Enter R" << std::endl;
 	float r, p = 3.14;
 	std::cin >> r;
-	std::cout << (p*r*r) << " " << (2*p*r) << std::endl;
+	float a = p*r*r;
+	float b = 2*p*r;
+	std::cout << a << " " << b << std::endl;
 }

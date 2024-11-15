@@ -9,5 +9,6 @@ int main() {
 	std::cout << "Enter a and b" << std::endl;
 	int a, b;
 	std::cin >> a >> b;
-	std::cout << a+b << std::endl << a-b << std::endl << a/b << std::endl;
+	std::cout << std::endl;
+	std::cout << a+b << std::endl << a-b << std::endl << a*b << std::endl;
 }
