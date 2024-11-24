@@ -72,6 +72,48 @@
 18 33 40 39 28 9
 17 32 31 30 29 10
 16 15 14 13 12 11
+
+0  1  2  3  4  5  6  7
+27 28 29 30 31 32 33 8
+26 47 48 49 50 51 34 9
+25 46 59 60 61 52 35 10
+24 45 58 63 62 53 36 11
+23 44 57 56 55 54 37 12
+22 43 42 41 40 39 38 13
+21 20 19 18 17 16 15 14
+
+0  1  2  3
+21 22 23 4
+20 35 24 5
+19 34 25 6
+18 33 26 7
+17 32 27 8
+16 31 28 9
+15 30 29 10
+14 13 12 11
+
+0  1  2  3  4
+19 20 21 22 5
+18 31 32 23 6
+17 30 33 24 7
+16 29 34 25 8
+15 28 27 26 9
+14 13 12 11 10
+
+0  1  2  3  4  5  6
+19 20 21 22 23 24 7
+18 31 32 33 34 25 8
+17 30 29 28 27 26 9
+16 15 14 13 12 11 10
+
+00 01 02 03 04
+10 11 12 13 14
+20 21 22 23 24
+30 31 32 33 34
+40 41 42 43 44
+50 51 52 53 54
+60 61 62 63 64
+
 ``` */
 
 #include <iostream>
@@ -79,21 +121,48 @@ int main() {
 	int m, n;
 	std::cout << "Enter m and n" << std::endl;
 	std::cin >> m >> n;
-	for (int i = 0; i < m; i++) {
-		for (int j = 0; j < n; j++) {
-			if (i == 0) {
-				std::cout << j << " ";
+	if (m >= n) {
+		for (int row = 0; row < m; row++) {
+			for (int column = 0; column < n; column++) {
+				if (row < (n+1)/2 && column >= row && column < n-row) {
+					std::cout << column << " ";
+				}
+				else if (true) {
+					std::cout << "* ";
+				}
+				else if (true) {
+					std::cout << "^ ";
+				}
+				else if (true) {
+					std::cout << "< ";
+				}
+				else {
+					std::cout << "> ";
+				}
 			}
-			else if (j == 0) {
-				std::cout << j-i+2*n+2*m-4 << " ";
-			}
-			else if (i/2 <= m/2 && i+j < n) {
-				std::cout << j-i+2*n+2*m-4 << " ";
-			}
-			else {
-				std::cout << " ";
-			}
+			std::cout << std::endl;
 		}
-		std::cout << std::endl;
 	}
+	else {
+		for (int row = 0; row < m; row++) {
+                        for (int column = 0; column < n; column++) {
+                                if (row < (m+1)/2 && column >= row && column < n-row) {
+                                        std::cout << column << " ";
+                                }
+                                else if (true) {
+                                        std::cout << "^ ";
+                                }
+                                else if (true) {
+                                        std::cout << "< ";
+                                }
+                                else if (true) {
+                                        std::cout << "> ";
+                                }
+                                else {
+                                        std::cout << "* ";
+                                }
+                        }
+                        std::cout << std::endl;
+                }
+        }
 }
