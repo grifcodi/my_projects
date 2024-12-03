@@ -127,7 +127,7 @@ int main() {
 				if (row < (n+1)/2 && column >= row && column < n-row) {
 					std::cout << column << " ";
 				}
-				else if (true) {
+				else if (row >= m-(n+1)/2 && column >= m-1-row && column < n+m-1-row) {
 					std::cout << "* ";
 				}
 				else if (true) {
