@@ -12,20 +12,35 @@ struct vector {
 	}
 
 	void set_value (int value, int index) {
-		array[index] = value;
+		if (index >= 0 && index < size) {
+			array[index] = value;
+		}
 	}
 
-//	void push_back (const value_type&, value) {
-//		if () {
-//
-//		}
-//		else {
-//
-//		}	
-//	}
+	void push_back (int value) {
+		if (size >= capacity) {
+			capacity *= 2;
+			int* new_array = new int[capacity];
+
+			for (int i = 0; i < size; i++) {
+				new_array[i] = array[i];
+			}
+
+			delete[] array;
+			array = new_array;
+		}
+
+		array[size] = value;
+		size++;	
+	}
 
 	int get_value (int index) {
+		if (index >= 0 && index < size) {
 		return array[index];
+		}
+		else {
+			return -1;
+		}
 	}
 
 	int get_size () {
@@ -33,7 +48,7 @@ struct vector {
 	}
 
 	~vector() {
-		std::cout << "deconsructor" << '\n';
+		std::cout << "destructor" << '\n';
 		delete[] array;
 	}
 };
@@ -41,11 +56,11 @@ struct vector {
 int main() {
 
 	vector v(10);
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < 15; i++)
 	{
-		v.set_value(i, i);
-		v.get_value(i);
-		v.get_size;
+		v.push_back(i);
+		std:: cout << v.get_value(i) << " " << v.get_size() << '\n';
 	}
+	return 0;
 }
 
