@@ -9,6 +9,16 @@ struct vector
 	T* data;
 	int size, capacity;
 
+	T& operator[] (int index) 
+	{
+		if (index < 0 || index >= size) 
+		{
+			std::cout << "Index: " << index << " out of range" << '\n';
+			return 0;
+		}
+		return data[index];
+	}
+
 	vector(): size(0), capacity (8) {
 		data = new T[capacity];
 	}
@@ -129,7 +139,6 @@ struct vector
 			return;
 		}
 		std::cout << data[index];
-		std::cout << '\n';
 	}
 
 	void print_vector() 
